@@ -1,0 +1,55 @@
+﻿.cover {
+    width: 100%;
+    min-height: 250px;
+    opacity: 0.6;
+}
+.navbar-font-size {
+    font-size: 20px;
+}
+
+.space-between {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.caption {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+.photo-id {
+    height: 100px;
+    width: 100px;
+}
+
+.no-padding {
+    padding: 0;
+    margin: 0;
+}
+
+.elements {
+    max-width: 1200px;
+    margin: 0 auto;
+    /* width: 1200px; */
+}
+
+.elements .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.elements h2 {
+    font-weight: 400;
+}
+
+.elements .col-lg-4 p {
+    margin-right: .75rem;
+    margin-left: .75rem;
+}
+
+.vertical-center {
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+}

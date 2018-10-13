@@ -1,0 +1,149 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">User Page</h1>
+        <p class="lead">You can enroll or unenroll an student to a course</p>
+    </div>
+</div>
+
+<div class="container space-between">
+    <h1>Select a Course</h1>
+    <div class="form-group" style="padding-top: 2em">
+        <label for="InputSelectionName">Course Name</label>
+        <select class="form-control" id="InputSelectionName">
+            <option>Programming I</option>
+            <option>Software Engineering Fundamentals</option>
+            <option>Web Interface Design</option>
+            <option>Unix/Linux Operating Systems</option>
+            <option>Software Engineering Methodologies 1</option>
+        </select>
+    </div>
+</div>
+
+<div class="container space-between">
+	<h2>Enrroll Student</h2>
+</div>
+<div class="container space-between">
+  <div class="row">
+    <div class="col-sm">
+      <div class="form-group">
+    		<label for="SearchInput">Search</label>
+				<input type="text" class="form-control" id="SearchInput" placeholder="Enter ID to Search">
+  		</div>
+			<ul class="list-group">
+			<li class="list-group-item">123124</li>
+			<li class="list-group-item">32165</li>
+			<li class="list-group-item">984163</li>
+		</ul>
+    </div>
+
+    <div class="col-sm">
+      <p><strong>Name: </strong> Carlos Zabaleta</p>
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-primary">Courses enrolled</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Unix/Linux Operating Systems
+					<span class="badge badge-primary badge-pill">005</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Software Engineering Fundamentals
+					<span class="badge badge-primary badge-pill">006</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Programming I
+					<span class="badge badge-primary badge-pill">008</span>
+				</li>
+			</ul>
+    </div>
+    <div class="col-sm">
+			<h4>Courses to Enroll</h4>
+      <div class="form-group" style="padding-top: 2em">
+        <label for="InputSelectionName">Course Name</label>
+        <select class="form-control" id="InputSelectionName">
+            <option>Programming I</option>
+            <option>Software Engineering Fundamentals</option>
+            <option>Web Interface Design</option>
+            <option>Unix/Linux Operating Systems</option>
+            <option>Software Engineering Methodologies 1</option>
+        </select>
+    	</div>
+    </div>
+		<div class="col-sm">
+			<h4>Sections Available</h4>
+      <div class="form-group" style="padding-top: 2em">
+        <label for="InputSelectionName">Section Number</label>
+        <select class="form-control" id="InputSelectionName">
+            <option>003</option>
+            <option>002</option>
+            <option>001</option>
+        </select>
+    	</div>
+			<button type="button" class="btn btn-primary">Enroll Student</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="container space-between">
+	<h2>Unenrroll Student</h2>
+</div>
+<div class="container space-between">
+  <div class="row">
+    <div class="col-sm">
+      <div class="form-group">
+    		<label for="SearchInput">Search</label>
+				<input type="text" class="form-control" id="SearchInput" placeholder="Enter ID to Search">
+  		</div>
+			<ul class="list-group">
+			<li class="list-group-item">123124</li>
+			<li class="list-group-item">32165</li>
+			<li class="list-group-item">984163</li>
+		</ul>
+    </div>
+
+    <div class="col-sm">
+      <p><strong>Name: </strong> Carlos Zabaleta</p>
+			<ul class="list-group">
+				<li class="list-group-item list-group-item-primary">Courses enrolled</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Unix/Linux Operating Systems
+					<span class="badge badge-primary badge-pill">005</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Software Engineering Fundamentals
+					<span class="badge badge-primary badge-pill">006</span>
+				</li>
+				<li class="list-group-item d-flex justify-content-between align-items-center">
+					Programming I
+					<span class="badge badge-primary badge-pill">008</span>
+				</li>
+			</ul>
+    </div>
+    <div class="col-sm">
+			<h4>Courses to Unenroll</h4>
+      <div class="form-group" style="padding-top: 2em">
+        <label for="InputSelectionName">Course Name</label>
+        <select class="form-control" id="InputSelectionName">
+            <option>Programming I</option>
+            <option>Software Engineering Fundamentals</option>
+            <option>Web Interface Design</option>
+            <option>Unix/Linux Operating Systems</option>
+            <option>Software Engineering Methodologies 1</option>
+        </select>
+    	</div>
+    </div>
+		<div class="col-sm">
+			<h4>Sections Available</h4>
+      <div class="form-group" style="padding-top: 2em">
+        <label for="InputSelectionName">Section Number</label>
+        <select class="form-control" id="InputSelectionName">
+            <option>003</option>
+        </select>
+    	</div>
+			<button type="button" class="btn btn-primary">Unenroll Student</button>
+    </div>
+  </div>
+</div>

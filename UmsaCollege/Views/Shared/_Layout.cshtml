@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Active = "active";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UMSA College</title>
+    <link href="~/images/iconCollege.png" rel="shortcut icon">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="~/lib/font-awesome/web-fonts-with-css/css/fontawesome-all.css">
+    <link rel="stylesheet" href="~/css/styles.css">
+</head>
+
+<body>
+
+    @Html.Partial("_Header")
+
+    @Html.Partial("_Navbar")
+
+    @RenderBody()
+
+    @Html.Partial("_Footer")
+
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/script.js"></script>
+
+</body>
+</html>
