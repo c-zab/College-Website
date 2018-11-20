@@ -10,33 +10,4 @@
     </div>
 </div>
 
-
-<div class="container">
-    <form>
-        <div class="form-group">
-            <label for="InputName">Course Name</label>
-            <input type="text" class="form-control" id="InputName" placeholder="Enter course name">
-            <small id="nameHelp" class="form-text text-muted">Enter the full name of the new course.</small>
-        </div>
-        <div class="form-group">
-            <label for="InputCode">Course Code</label>
-            <input type="text" class="form-control" id="InputCode" placeholder="Enter course code">
-            <small id="codeHelp" class="form-text text-muted">Enter the code of the new course.</small>
-        </div>
-        <div class="form-group">
-            <label for="FormControlSelectSeason">Select the Season</label>
-            <select class="form-control" id="FormControlSelectSeason">
-                <option>Winter</option>
-                <option>Summer</option>
-                <option>Fall</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="FormControlDescription">Course Description</label>
-            <textarea class="form-control" id="FormControlDescription" rows="3"></textarea>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</div>
+@await Html.PartialAsync("~/Views/Shared/_Form-BasedInputs.cshtml")

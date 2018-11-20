@@ -1,0 +1,48 @@
+﻿@model UmsaCollege.Models.Course
+
+<div class="container">
+    <form asp-controller="Home" asp-action="InsertPage" method="post">
+        <div class="form-group">
+            <label asp-for="Name" for="InputName">Course Name</label>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Enter course name">
+            <small id="nameHelp" class="form-text text-muted">Enter the full name of the new course.</small>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Code" for="InputCode">Course Code</label>
+            <input asp-for="Code" type="text" class="form-control" id="InputCode" placeholder="Enter course code">
+            <small id="codeHelp" class="form-text text-muted">Enter the code of the new course.</small>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Description" for="FormControlDescription">Course Description</label>
+            <textarea asp-for="Description" class="form-control" id="FormControlDescription" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Season" for="FormControlSelectSeason">Select the Season</label>
+            <select asp-for="Season" class="form-control" id="FormControlSelectSeason">
+                <option value="Winter">Winter</option>
+                <option value="Summer">Summer</option>
+                <option value="Fall">Fall</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Status">Select the Status of the Course  </label>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input asp-for="Status" value="Open" type="radio" id="open" name="status" class="custom-control-input">
+                <label asp-for="Status" class="custom-control-label" for="open">Open</label>
+            </div>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input asp-for="Status" value="Full" type="radio" id="full" name="status" class="custom-control-input">
+                <label asp-for="Status" class="custom-control-label" for="full">Full</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" value="cancel" class="btn btn-danger" asp-controller="Home" asp-action="Index">
+                Cancel
+            </button>
+        </div>
+    </form>
+</div>
