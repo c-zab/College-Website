@@ -36,7 +36,6 @@ C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Deb
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.runtimeconfig.dev.json
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.dll
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.pdb
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.csprojAssemblyReference.cache
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.csproj.CoreCompileInputs.cache
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.AssemblyInfoInputs.cache
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.AssemblyInfo.cs
