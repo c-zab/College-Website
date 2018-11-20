@@ -5,23 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\lib\bootstrap-4.1.3-dist\**" />
-    <Compile Remove="wwwroot\lib\bulma\**" />
-    <Content Remove="wwwroot\lib\bootstrap-4.1.3-dist\**" />
-    <Content Remove="wwwroot\lib\bulma\**" />
-    <EmbeddedResource Remove="wwwroot\lib\bootstrap-4.1.3-dist\**" />
-    <EmbeddedResource Remove="wwwroot\lib\bulma\**" />
-    <None Remove="wwwroot\lib\bootstrap-4.1.3-dist\**" />
-    <None Remove="wwwroot\lib\bulma\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="wwwroot\images\fondo.jpg" />
     <Content Remove="wwwroot\images\iconCollege.png" />
     <Content Remove="wwwroot\images\logoCollegemin.png" />
     <Content Remove="wwwroot\images\logoCollegemin2.png" />
     <Content Remove="wwwroot\images\logoCollegemin3.png" />
-    <Content Remove="wwwroot\lib\bootstrap-4.1.3-dist.zip" />
   </ItemGroup>
 
   <ItemGroup>

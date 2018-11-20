@@ -13263,11 +13263,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zabal\\Downloads\\Comp229-301002235-Assign01-P2-v1.zip\\UmsaCollege\\UmsaCollege\\UmsaCollege.csproj",
+      "projectUniqueName": "C:\\Users\\zabal\\Centennial\\WebDev\\UMSACollege\\College-Website\\UmsaCollege\\UmsaCollege.csproj",
       "projectName": "UmsaCollege",
-      "projectPath": "C:\\Users\\zabal\\Downloads\\Comp229-301002235-Assign01-P2-v1.zip\\UmsaCollege\\UmsaCollege\\UmsaCollege.csproj",
+      "projectPath": "C:\\Users\\zabal\\Centennial\\WebDev\\UMSACollege\\College-Website\\UmsaCollege\\UmsaCollege.csproj",
       "packagesPath": "C:\\Users\\zabal\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zabal\\Downloads\\Comp229-301002235-Assign01-P2-v1.zip\\UmsaCollege\\UmsaCollege\\obj\\",
+      "outputPath": "C:\\Users\\zabal\\Centennial\\WebDev\\UMSACollege\\College-Website\\UmsaCollege\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
