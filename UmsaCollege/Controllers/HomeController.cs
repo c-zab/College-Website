@@ -23,7 +23,7 @@ namespace UmsaCollege.Controllers {
             CourseRepository.AddCourses(new Course {
                 Name = "Web Development",
                 Code = "COMP-110",
-                Description = ">In this first level web course the student will learn how to access the resources of the Internet, use HTML and CSS to publish high-quality Web documents.",
+                Description = "In this first level web course the student will learn how to access the resources of the Internet, use HTML and CSS to publish high-quality Web documents.",
                 Season = "Fall",
                 Status = "Open"
             });
