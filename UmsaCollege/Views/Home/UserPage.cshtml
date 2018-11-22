@@ -1,15 +1,53 @@
-﻿@{
+﻿@model UmsaCollege.Models.Student
+@{
     Layout = "_Layout";
 }
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">User Page</h1>
-        <p class="lead">You can enroll or unenroll an student to a course</p>
+        <p class="lead">You can enroll or unenroll an student to a course, besides, you can <strong>add an student.</strong></p>
     </div>
 </div>
 
 <div class="container space-between">
+    <h2>Enrroll Student</h2>
+</div>
+
+<div class="container">
+    <form asp-controller="Home" asp-action="DataPage" method="post">
+        <div class="form-group">
+            <label asp-for="Name" for="InputName">Name</label>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Enter student's name">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName" for="InputCode">Last name</label>
+            <input asp-for="LastName" type="text" class="form-control" id="InputCode" placeholder="Enter student's last name">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="StudentCode" for="FormControlDescription">Student Code</label>
+            <input asp-for="StudentCode" class="form-control" id="FormControlDescription" placeholder="Enter student's code">
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Gender" for="FormControlSelectGender">Select gender</label>
+            <select asp-for="Gender" class="form-control" id="FormControlSelectGender">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="N">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit" value="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+
+@*<div class="container space-between">
 	<h2>Enrroll Student</h2>
 </div>
 <div class="container space-between">
@@ -132,4 +170,4 @@
 			<button type="button" class="btn btn-primary">Unenroll Student</button>
     </div>
   </div>
-</div>
+</div>*@

@@ -13,8 +13,6 @@ namespace UmsaCollege.Models {
 
         public string StudentCode { get; set; }
 
-        public DateTime DateOfBrith { get; set; }
-
         public char Gender { get; set; }
     }
 }
