@@ -31,13 +31,3 @@ C:\Users\zabal\Downloads\Comp229-301002235-Assign01-P2-v1.zip\UmsaCollege\UmsaCo
 C:\Users\zabal\Downloads\Comp229-301002235-Assign01-P2-v1.zip\UmsaCollege\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.AssemblyInfo.cs
 C:\Users\zabal\Downloads\Comp229-301002235-Assign01-P2-v1.zip\UmsaCollege\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.dll
 C:\Users\zabal\Downloads\Comp229-301002235-Assign01-P2-v1.zip\UmsaCollege\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.pdb
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.deps.json
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.runtimeconfig.json
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.runtimeconfig.dev.json
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.dll
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\bin\Debug\netcoreapp2.0\UmsaCollege.pdb
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.csproj.CoreCompileInputs.cache
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.AssemblyInfoInputs.cache
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.AssemblyInfo.cs
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.dll
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.pdb
