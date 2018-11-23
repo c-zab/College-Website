@@ -6,11 +6,74 @@
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">User Page</h1>
-        <p class="lead">You can enroll or unenroll an student to a course, besides, you can <strong>add an student.</strong></p>
+        <p class="lead">You can enroll or unenroll an student to a course</p>
     </div>
 </div>
 
-<div class="container space-between">
+<div class="container col-6 d-flex justify-content-between align-items-center">
+    <h2>Enrroll Student</h2>
+    <h3 class="text-info">Software Engineering</h3>
+</div>
+
+<div class="container col-5 space-between">
+    <form method="post">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Code</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>3215</td>
+                    <td><button class="btn btn-primary" asp-controller="Home" asp-action="DataPage" asp-route-id="--"> Register</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>2215</td>
+                    <td><button class="btn btn-primary" asp-controller="Home" asp-action="DataPage" asp-route-id="--"> Register</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>Boorw</td>
+                    <td>3215</td>
+                    <td><button class="btn btn-primary" asp-controller="Home" asp-action="DataPage" asp-route-id="--"> Register</button></td>
+                </tr>
+            </tbody>
+        </table>
+        @*<ul class="list-group">
+            <li class="list-group-item list-group-item-primary">Students</li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <p class="no-padding">Carlos Zabaleta</p>
+                <p class="no-padding"><medium class="text-muted">3321</medium></p>
+                <button class="btn btn-primary" asp-controller="Home" asp-action="DataPage" asp-route-id="--"> Register</button>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <p class="no-padding">Franz Cuevas</p>
+                <p class="card-text"><medium class="text-muted">7721</medium></p>
+                <button class="btn btn-primary" asp-controller="Home" asp-action="DataPage" asp-route-id="--"> Register</button>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <p class="no-padding">Sergio Apaza</p>
+                <p class="card-text"><medium class="text-muted">1002</medium></p>
+                <button class="btn btn-primary" asp-controller="Home" asp-action="DataPage" asp-route-id="--"> Register</button>
+            </li>
+        </ul>*@
+    </form>
+</div>
+
+
+@*<div class="container space-between">
     <h2>Enrroll Student</h2>
 </div>
 
@@ -43,7 +106,7 @@
             <button type="submit" value="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
-</div>
+</div>*@
 
 
 

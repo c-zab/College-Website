@@ -4,30 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UmsaCollege.Models;
+using UmsaCollege.Infrastructure;
 
 namespace UmsaCollege.Controllers {
     public class HomeController : Controller {
+
+        private ICourseRepository courserepository;
+
+        public HomeController(ICourseRepository repo) {
+            courserepository = repo;
+        }
+
         public IActionResult Index() {
             return View();
         }
 
         public IActionResult DisplayPage() {
             ViewBag.Title = "Display";
-            CourseRepository.AddCourses(new Course {
-                Name = "Programming II",
-                Code = "COMP-100",
-                Description = "COMP100 is an introductory course in programming. It includes programming concepts, logic and program structures.",
-                Season = "Winter",
-                Status = "Full"
+            return View(new CourseListViewModel {
+                Courses = courserepository.Courses
+                    .OrderBy(p => p.CourseID)
             });
-            CourseRepository.AddCourses(new Course {
-                Name = "Web Development",
-                Code = "COMP-110",
-                Description = "In this first level web course the student will learn how to access the resources of the Internet, use HTML and CSS to publish high-quality Web documents.",
-                Season = "Fall",
-                Status = "Open"
-            });
-            return View(CourseRepository.courses);
         }
 
         public IActionResult InsertPage() {
@@ -36,12 +33,22 @@ namespace UmsaCollege.Controllers {
         }
 
         [HttpPost]
-        public IActionResult InsertPage(Course course) {
-            CourseRepository.AddCourses(course);
-            return View("DisplayPage", CourseRepository.courses);
+        public IActionResult InsertPage(CreateCourseViewModel courseVM) {
+            if (ModelState.IsValid) {
+                courserepository.SaveCourse(courseVM.course);
+                return RedirectToAction("DisplayPage");
+            } else {
+                return View("DisplayPage");
+            }
         }
 
         public IActionResult DataPage() {
+            ViewBag.Title = "Data";
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DataPage(int id) {
             ViewBag.Title = "Data";
             return View();
         }

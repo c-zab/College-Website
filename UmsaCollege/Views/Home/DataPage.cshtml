@@ -35,7 +35,7 @@
                         <option>Fall</option>
                     </select>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="FormControlSelectStatus">Select the Status of the course</label>
                     <select class="form-control" id="FormControlSelectStatus">
@@ -43,7 +43,12 @@
                         <option>Closed</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" value="cancel" class="btn btn-danger" asp-controller="Home" asp-action="DisplayPage">
+                        Delete
+                    </button>
+                </div>
             </form>
         </div>
 
