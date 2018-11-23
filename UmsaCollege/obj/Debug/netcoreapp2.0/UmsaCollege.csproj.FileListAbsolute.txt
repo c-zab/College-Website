@@ -41,4 +41,3 @@ C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Deb
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.AssemblyInfo.cs
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.dll
 C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.pdb
-C:\Users\zabal\Centennial\WebDev\UMSACollege\College-Website\UmsaCollege\obj\Debug\netcoreapp2.0\UmsaCollege.csprojAssemblyReference.cache
