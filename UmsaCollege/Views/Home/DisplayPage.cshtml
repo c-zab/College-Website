@@ -1,4 +1,4 @@
-﻿@model IEnumerable<UmsaCollege.Models.Course>
+﻿@model UmsaCollege.Infrastructure.CourseListViewModel
 @{
     Layout = "_Layout";
     int counter = 1;
@@ -14,7 +14,7 @@
 
 <div class="container">
     <div class="card-columns">
-        @foreach (UmsaCollege.Models.Course r in Model) {
+        @foreach (var r in Model.Courses) {
             <a asp-controller="Home" asp-action="DataPage" style="color:black; text-decoration:none">
                 <div class="card">
                     <img class="card-img-top" src="~/images/cover_courses/cover_course@(counter).jpg" alt="Card image cap">

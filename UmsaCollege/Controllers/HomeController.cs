@@ -4,16 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UmsaCollege.Models;
+using UmsaCollege.Infrastructure;
 
 namespace UmsaCollege.Controllers {
     public class HomeController : Controller {
+
+        private ICourseRepository courserepository;
+
+        public HomeController(ICourseRepository repo) {
+            courserepository = repo;
+        }
+
         public IActionResult Index() {
             return View();
         }
 
         public IActionResult DisplayPage() {
             ViewBag.Title = "Display";
-            return View();
+            return View(new CourseListViewModel {
+                Courses = courserepository.Courses
+                    .OrderBy(p => p.CourseID)
+            });
         }
 
         public IActionResult InsertPage() {
