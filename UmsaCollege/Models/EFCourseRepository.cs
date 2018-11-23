@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace UmsaCollege.Models {
-    public class EFCourseRepository : ICourseRepository{
+    public class EFCourseRepository : ICourseRepository {
         private ApplicationDbContext context;
 
         public EFCourseRepository(ApplicationDbContext ctx) {
@@ -15,11 +15,13 @@ namespace UmsaCollege.Models {
         public IQueryable<Course> Courses => context.Courses;
 
         public void SaveCourse(Course course) {
-            context.AttachRange(course);
-            if (course.CourseID == 0) {
-                context.Courses.Add(course);
+            if (course.Description != null & course.Name != null) {
+                context.AttachRange(course);
+                if (course.CourseID == 0) {
+                    context.Courses.Add(course);
+                }
+                context.SaveChanges();
             }
-            context.SaveChanges();
         }
 
         public Course GetById(int id) {

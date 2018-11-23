@@ -33,9 +33,9 @@ namespace UmsaCollege.Controllers {
         }
 
         [HttpPost]
-        public IActionResult InsertPage(CreateCourseViewModel courseVM) {
+        public IActionResult InsertPage(Course course) {
             if (ModelState.IsValid) {
-                courserepository.SaveCourse(courseVM.course);
+                courserepository.SaveCourse(course);
                 return RedirectToAction("DisplayPage");
             } else {
                 return View("DisplayPage");
