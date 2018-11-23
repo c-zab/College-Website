@@ -15,21 +15,23 @@
 <div class="container">
     <div class="card-columns">
         @foreach (var r in Model.Courses) {
-            <a asp-controller="Home" asp-action="DataPage" style="color:black; text-decoration:none">
-                <div class="card">
-                    <img class="card-img-top" src="~/images/cover_courses/cover_course@(counter).jpg" alt="Card image cap">
-                    @{ counter += 1; }
-                    @if (counter == 6) { counter = 1; }
-                    <div class="card-body">
-                        <h5 class="no-padding card-title">@r.Name</h5>
-                        <p class=" card-text"><medium class="text-muted">@r.Code</medium></p>
-                        <p class="card-text">@r.Description</p>
-                        <p class="card-text">Season: <medium class="text-muted">@r.Season</medium></p>
-                        @if (r.Status == "Open") { statusColor = "success"; } else { statusColor = "danger"; }
-                        <p class="card-text">Status: <span class="badge badge-@(statusColor)">@r.Status</span></p>
+            <form method="post" asp-controller="Home" asp-action="DataPage" asp-route-id="@r.CourseID">
+                <button class="text-left" style="border: none;cursor: pointer;background: none;" type="submit" value="submit">
+                    <div class="card">
+                        <img class="card-img-top" src="~/images/cover_courses/cover_course@(counter).jpg" alt="Card image cap">
+                        @{ counter += 1; }
+                        @if (counter == 6) { counter = 1; }
+                        <div class="card-body">
+                            <h5 class="no-padding card-title">@r.Name</h5>
+                            <p class=" card-text"><medium class="text-muted">@r.Code</medium></p>
+                            <p class="card-text">@r.Description</p>
+                            <p class="card-text">Season: <medium class="text-muted">@r.Season</medium></p>
+                            @if (r.Status == "Open") { statusColor = "success"; } else { statusColor = "danger"; }
+                            <p class="card-text">Status: <span class="badge badge-@(statusColor)">@r.Status</span></p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </button>
+            </form>
         }
     </div>
 </div>

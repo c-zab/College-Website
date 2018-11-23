@@ -33,12 +33,22 @@ namespace UmsaCollege.Controllers {
         }
 
         [HttpPost]
-        public IActionResult InsertPage(Course course) {
-            //EFCourseRepository.AddCourses(course);
-            return View("DisplayPage"/*, EFCourseRepository.courses*/);
+        public IActionResult InsertPage(CreateCourseViewModel courseVM) {
+            if (ModelState.IsValid) {
+                courserepository.SaveCourse(courseVM.course);
+                return RedirectToAction("DisplayPage");
+            } else {
+                return View("DisplayPage");
+            }
         }
 
         public IActionResult DataPage() {
+            ViewBag.Title = "Data";
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult DataPage(int id) {
             ViewBag.Title = "Data";
             return View();
         }

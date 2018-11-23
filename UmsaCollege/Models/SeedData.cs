@@ -30,7 +30,9 @@ namespace UmsaCollege.Models {
                     }
                 );
             };
-            context.SaveChanges();
+            //if (!context.Students.Any()) {
+            //    context.SaveChanges();
+            //}
         }
     }
 }
