@@ -4,15 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace UmsaCollege.Models {
-    public class ICourseRepository {
+    public interface ICourseRepository {
         IQueryable<Course> Courses { get; }
 
-        void SaveCourse(Student student);
+        void SaveCourse(Course course);
 
-        void Update(Student student);
+        void Update(Course course);
 
-        Student GetById(int id);
+        Course GetById(int id);
 
-        void Delete(Student student);
+        void Delete(Course course);
     }
 }
