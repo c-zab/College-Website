@@ -30,6 +30,7 @@ namespace UmsaCollege {
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
+            SeedData.EnsurePopulated(app);
         }
     }
 }

@@ -13,21 +13,7 @@ namespace UmsaCollege.Controllers {
 
         public IActionResult DisplayPage() {
             ViewBag.Title = "Display";
-            //EFCourseRepository.AddCourses(new Course {
-            //    Name = "Programming II",
-            //    Code = "COMP-100",
-            //    Description = "COMP100 is an introductory course in programming. It includes programming concepts, logic and program structures.",
-            //    Season = "Winter",
-            //    Status = "Full"
-            //});
-            //EFCourseRepository.AddCourses(new Course {
-            //    Name = "Web Development",
-            //    Code = "COMP-110",
-            //    Description = "In this first level web course the student will learn how to access the resources of the Internet, use HTML and CSS to publish high-quality Web documents.",
-            //    Season = "Fall",
-            //    Status = "Open"
-            //});
-            return View(/*EFCourseRepository.courses*/);
+            return View();
         }
 
         public IActionResult InsertPage() {
