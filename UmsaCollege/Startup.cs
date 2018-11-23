@@ -20,8 +20,8 @@ namespace UmsaCollege {
         public void ConfigureServices(IServiceCollection services) {
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
-                Configuration["Data:SportStoreProducts:ConnectionString"]));
-            services.AddTransient<IProductRepository, EFProductRepository>();
+                Configuration["Data:UmsaCollegeDB:ConnectionString"]));
+            services.AddTransient<ICourseRepository, EFCourseRepository>();
             services.AddMvc();
         }
 
