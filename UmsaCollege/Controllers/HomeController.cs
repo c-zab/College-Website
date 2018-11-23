@@ -13,21 +13,21 @@ namespace UmsaCollege.Controllers {
 
         public IActionResult DisplayPage() {
             ViewBag.Title = "Display";
-            CourseRepository.AddCourses(new Course {
+            EFCourseRepository.AddCourses(new Course {
                 Name = "Programming II",
                 Code = "COMP-100",
                 Description = "COMP100 is an introductory course in programming. It includes programming concepts, logic and program structures.",
                 Season = "Winter",
                 Status = "Full"
             });
-            CourseRepository.AddCourses(new Course {
+            EFCourseRepository.AddCourses(new Course {
                 Name = "Web Development",
                 Code = "COMP-110",
                 Description = "In this first level web course the student will learn how to access the resources of the Internet, use HTML and CSS to publish high-quality Web documents.",
                 Season = "Fall",
                 Status = "Open"
             });
-            return View(CourseRepository.courses);
+            return View(EFCourseRepository.courses);
         }
 
         public IActionResult InsertPage() {
@@ -37,8 +37,8 @@ namespace UmsaCollege.Controllers {
 
         [HttpPost]
         public IActionResult InsertPage(Course course) {
-            CourseRepository.AddCourses(course);
-            return View("DisplayPage", CourseRepository.courses);
+            EFCourseRepository.AddCourses(course);
+            return View("DisplayPage", EFCourseRepository.courses);
         }
 
         public IActionResult DataPage() {
