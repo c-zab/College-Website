@@ -30,9 +30,9 @@ namespace UmsaCollege.Controllers {
         }
 
         [HttpPost]
-        public IActionResult DisplayPage(Course course) {
+        public IActionResult DisplayPage(ListViewModel course) {
             ViewBag.Title = "Display";
-            courserepository.Update(course);
+            courserepository.Update(course.Courses);
             return View(new CourseListViewModel {
                 Courses = courserepository.Courses
                     .OrderBy(p => p.CourseID)

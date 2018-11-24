@@ -9,7 +9,7 @@ using UmsaCollege.Models;
 namespace UmsaCollege.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181124024804_InitialCreate")]
+    [Migration("20181124054621_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
