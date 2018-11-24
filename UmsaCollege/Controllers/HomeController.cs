@@ -39,6 +39,17 @@ namespace UmsaCollege.Controllers {
             });
         }
 
+        [HttpPost]
+        public IActionResult DeleteCourse(int id) {
+            ViewBag.Title = "Display";
+            var course = courserepository.GetById(id);
+            courserepository.Delete(course);
+            return View("DisplayPage",new CourseListViewModel {
+                Courses = courserepository.Courses
+                    .OrderBy(p => p.CourseID)
+            });
+        }
+
         public IActionResult InsertPage() {
             ViewBag.Title = "Insert";
             return View();

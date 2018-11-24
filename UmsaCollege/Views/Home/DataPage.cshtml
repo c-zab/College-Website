@@ -58,9 +58,9 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        @*<button type="submit" value="cancel" class="btn btn-danger" asp-controller="Home" asp-action="DisplayPage">
-                Delete
-            </button>*@
+                        <button type="submit" value="cancel" class="btn btn-danger" asp-route-id="@Model.CourseID" asp-controller="Home" asp-action="DeleteCourse">
+                            Delete
+                        </button>
                     </div>
                 </form>
             </div>
