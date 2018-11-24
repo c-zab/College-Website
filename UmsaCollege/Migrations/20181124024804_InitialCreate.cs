@@ -33,60 +33,33 @@ namespace UmsaCollege.Migrations
                     Name = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     StudentCode = table.Column<string>(nullable: true),
-                    Gender = table.Column<string>(nullable: false)
+                    Gender = table.Column<string>(nullable: false),
+                    CourseID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Student", x => x.StudentID);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Enrollment",
-                columns: table => new
-                {
-                    EnrollmentID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    CourseID = table.Column<int>(nullable: false),
-                    StudentID = table.Column<int>(nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Enrollment", x => x.EnrollmentID);
                     table.ForeignKey(
-                        name: "FK_Enrollment_Course_CourseID",
+                        name: "FK_Student_Course_CourseID",
                         column: x => x.CourseID,
                         principalTable: "Course",
                         principalColumn: "CourseID",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Enrollment_Student_StudentID",
-                        column: x => x.StudentID,
-                        principalTable: "Student",
-                        principalColumn: "StudentID",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Enrollment_CourseID",
-                table: "Enrollment",
+                name: "IX_Student_CourseID",
+                table: "Student",
                 column: "CourseID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Enrollment_StudentID",
-                table: "Enrollment",
-                column: "StudentID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Enrollment");
+                name: "Student");
 
             migrationBuilder.DropTable(
                 name: "Course");
-
-            migrationBuilder.DropTable(
-                name: "Student");
         }
     }
 }
