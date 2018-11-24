@@ -29,6 +29,16 @@ namespace UmsaCollege.Controllers {
             });
         }
 
+        [HttpPost]
+        public IActionResult DisplayPage(Course course) {
+            ViewBag.Title = "Display";
+            courserepository.Update(course);
+            return View(new CourseListViewModel {
+                Courses = courserepository.Courses
+                    .OrderBy(p => p.CourseID)
+            });
+        }
+
         public IActionResult InsertPage() {
             ViewBag.Title = "Insert";
             return View();

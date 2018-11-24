@@ -18,22 +18,23 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <form asp-controller="Home" asp-action="DisplayPage">
+                <form asp-controller="Home" asp-action="DisplayPage" method="post">
+                    @Html.HiddenFor(m => Model.CourseID)
                     <div class="form-group">
-                        <label for="InputName">Course Name</label>
-                        <input type="text" class="form-control" id="InputName" value="@Model.Name">
+                        <label asp-for="Name">Course Name</label>
+                        <input asp-for="Name" type="text" class="form-control" id="InputName" value="@Model.Name">
                     </div>
                     <div class="form-group">
-                        <label for="InputCode">Course Code</label>
-                        <input type="text" class="form-control" id="InputCode" value="@Model.Code">
+                        <label asp-for="Code" for="InputCode">Course Code</label>
+                        <input asp-for="Code" type="text" class="form-control" id="InputCode" value="@Model.Code">
                     </div>
                     <div class="form-group">
-                        <label for="FormControlDescription">Course Description</label>
-                        <textarea class="form-control" id="FormControlDescription" rows="3">@Model.Description</textarea>
+                        <label asp-for="Description" for="FormControlDescription">Course Description</label>
+                        <textarea asp-for="Description" class="form-control" id="FormControlDescription" rows="3">@Model.Description</textarea>
                     </div>
                     <div class="form-group">
-                        <label for="FormControlSelectSeason">Select the Season</label>
-                        <select class="form-control" id="FormControlSelectSeason">
+                        <label asp-for="Season" for="FormControlSelectSeason">Select the Season</label>
+                        <select asp-for="Season" class="form-control" id="FormControlSelectSeason">
                             <option selected>@Model.Season</option>
                             @if (@Model.Name == "Fall") {
                                 <option>Winter</option>
@@ -45,8 +46,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="FormControlSelectStatus">Select the Status of the course</label>
-                        <select class="form-control" id="FormControlSelectStatus">
+                        <label asp-for="Status" for="FormControlSelectStatus">Select the Status of the course</label>
+                        <select asp-for="Status" class="form-control" id="FormControlSelectStatus">
                             <option selected>@Model.Status</option>
                             @if (@Model.Status == "Full") {
                                 <option>Closed</option>
@@ -57,9 +58,9 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="submit" value="cancel" class="btn btn-danger" asp-controller="Home" asp-action="DisplayPage">
-                            Delete
-                        </button>
+                        @*<button type="submit" value="cancel" class="btn btn-danger" asp-controller="Home" asp-action="DisplayPage">
+                Delete
+            </button>*@
                     </div>
                 </form>
             </div>
