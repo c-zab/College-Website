@@ -17,18 +17,18 @@
 
 <body>
 
-    @Html.Partial("_Header")
+    @await Html.PartialAsync("_Header")
 
-    @Html.Partial("_Navbar")
+    @await Html.PartialAsync("_Navbar")
 
     @RenderBody()
 
-    @Html.Partial("_Footer")
+    @await Html.PartialAsync("_Footer")
 
 
     <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    <script src="/js/script.js"></script>
+    <script src="~/js/script.js"></script>
 
 </body>
 </html>

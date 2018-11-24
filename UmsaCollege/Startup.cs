@@ -22,6 +22,7 @@ namespace UmsaCollege {
             options.UseSqlServer(
                 Configuration["Data:UmsaCollegeDB:ConnectionString"]));
             services.AddTransient<ICourseRepository, EFCourseRepository>();
+            services.AddTransient<IStudentRepository, EFStudentRepository>();
             services.AddMvc();
         }
 

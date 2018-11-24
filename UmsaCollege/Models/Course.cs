@@ -17,6 +17,6 @@ namespace UmsaCollege.Models {
 
         public string Status { get; set; }
 
-        public ICollection<CourseStudents> CourseStudents { get; set; }
+        public ICollection<Enrollment> Enrollments { get; set; }
     }
 }

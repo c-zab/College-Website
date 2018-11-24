@@ -15,12 +15,14 @@ namespace UmsaCollege.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.1.4-rtm-31024")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("UmsaCollege.Models.Course", b =>
                 {
                     b.Property<int>("CourseID")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code");
 
@@ -34,26 +36,33 @@ namespace UmsaCollege.Migrations
 
                     b.HasKey("CourseID");
 
-                    b.ToTable("Courses");
+                    b.ToTable("Course");
                 });
 
-            modelBuilder.Entity("UmsaCollege.Models.CourseStudents", b =>
+            modelBuilder.Entity("UmsaCollege.Models.Enrollment", b =>
                 {
+                    b.Property<int>("EnrollmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<int>("CourseID");
 
                     b.Property<int>("StudentID");
 
-                    b.HasKey("CourseID", "StudentID");
+                    b.HasKey("EnrollmentID");
+
+                    b.HasIndex("CourseID");
 
                     b.HasIndex("StudentID");
 
-                    b.ToTable("CourseStudent");
+                    b.ToTable("Enrollment");
                 });
 
             modelBuilder.Entity("UmsaCollege.Models.Student", b =>
                 {
                     b.Property<int>("StudentID")
-                        .ValueGeneratedOnAdd();
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Gender")
                         .IsRequired()
@@ -67,18 +76,18 @@ namespace UmsaCollege.Migrations
 
                     b.HasKey("StudentID");
 
-                    b.ToTable("Students");
+                    b.ToTable("Student");
                 });
 
-            modelBuilder.Entity("UmsaCollege.Models.CourseStudents", b =>
+            modelBuilder.Entity("UmsaCollege.Models.Enrollment", b =>
                 {
-                    b.HasOne("UmsaCollege.Models.Course", "course")
-                        .WithMany("CourseStudents")
+                    b.HasOne("UmsaCollege.Models.Course", "Course")
+                        .WithMany("Enrollments")
                         .HasForeignKey("CourseID")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("UmsaCollege.Models.Student", "student")
-                        .WithMany("CourseStudents")
+                    b.HasOne("UmsaCollege.Models.Student", "Student")
+                        .WithMany("Enrollments")
                         .HasForeignKey("StudentID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

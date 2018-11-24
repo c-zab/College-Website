@@ -10,9 +10,11 @@ namespace UmsaCollege.Controllers {
     public class HomeController : Controller {
 
         private ICourseRepository courserepository;
+        private IStudentRepository studentrepository;
 
-        public HomeController(ICourseRepository repo) {
-            courserepository = repo;
+        public HomeController(ICourseRepository repocourse, IStudentRepository repostudent) {
+            courserepository = repocourse;
+            studentrepository = repostudent;
         }
 
         public IActionResult Index() {
@@ -50,14 +52,13 @@ namespace UmsaCollege.Controllers {
         [HttpPost]
         public IActionResult DataPage(int id) {
             ViewBag.Title = "Data";
-            return View();
+            Course course = courserepository.GetById(id);
+            return View(course);
         }
 
         public IActionResult UserPage() {
             ViewBag.Title = "User";
             return View();
         }
-
     }
-
 }

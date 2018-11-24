@@ -1,4 +1,5 @@
-﻿@{
+﻿@model UmsaCollege.Models.Course
+@{
     Layout = "_Layout";
 }
 
@@ -8,71 +9,83 @@
         <p class="lead">You can update or display the course information.</p>
     </div>
 </div>
+@if (Model == null) {
+    <div class="p-3 mb-2 bg-danger text-white container">
+        <h1 class="display-4">No course selected</h1>
+        <p class="lead">Please select a course in DisplayPage and then edit it here</p>
+    </div>
+} else {
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form asp-controller="Home" asp-action="DisplayPage">
+                    <div class="form-group">
+                        <label for="InputName">Course Name</label>
+                        <input type="text" class="form-control" id="InputName" value="@Model.Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputCode">Course Code</label>
+                        <input type="text" class="form-control" id="InputCode" value="@Model.Code">
+                    </div>
+                    <div class="form-group">
+                        <label for="FormControlDescription">Course Description</label>
+                        <textarea class="form-control" id="FormControlDescription" rows="3">@Model.Description</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="FormControlSelectSeason">Select the Season</label>
+                        <select class="form-control" id="FormControlSelectSeason">
+                            <option selected>@Model.Season</option>
+                            @if (@Model.Name == "Fall") {
+                                <option>Winter</option>
+                            } else {
+                                <option>Fall</option>
+                            }
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form asp-controller="Home" asp-action="DisplayPage">
-                <div class="form-group">
-                    <label for="InputName">Course Name</label>
-                    <input type="text" class="form-control" id="InputName" value="Programming I">
-                    <small id="nameHelp" class="form-text text-muted">Enter the full name of the course.</small>
-                </div>
-                <div class="form-group">
-                    <label for="InputCode">Course Code</label>
-                    <input type="text" class="form-control" id="InputCode" value="COMP-100">
-                    <small id="codeHelp" class="form-text text-muted">Enter the code of the course.</small>
-                </div>
-                <div class="form-group">
-                    <label for="FormControlDescription">Course Description</label>
-                    <textarea class="form-control" id="FormControlDescription" rows="3">COMP100 is an introductory course in programming. It includes programming concepts, logic and program structures.</textarea>
-                </div>
-                <div class="form-group">
-                    <label for="FormControlSelectSeason">Select the Season</label>
-                    <select class="form-control" id="FormControlSelectSeason">
-                        <option selected>Winter</option>
-                        <option>Summer</option>
-                        <option>Fall</option>
-                    </select>
-                </div>
+                        </select>
+                    </div>
 
-                <div class="form-group">
-                    <label for="FormControlSelectStatus">Select the Status of the course</label>
-                    <select class="form-control" id="FormControlSelectStatus">
-                        <option selected>Open</option>
-                        <option>Closed</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <button type="submit" value="cancel" class="btn btn-danger" asp-controller="Home" asp-action="DisplayPage">
-                        Delete
+                    <div class="form-group">
+                        <label for="FormControlSelectStatus">Select the Status of the course</label>
+                        <select class="form-control" id="FormControlSelectStatus">
+                            <option selected>@Model.Status</option>
+                            @if (@Model.Status == "Full") {
+                                <option>Closed</option>
+                            } else {
+                                <option>Full</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" value="cancel" class="btn btn-danger" asp-controller="Home" asp-action="DisplayPage">
+                            Delete
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-3">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-primary">Students enrolled</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <p class="no-padding">Carlos Zabaleta</p>
+                        <p class="card-text"><medium class="text-muted">3321</medium></p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <p class="no-padding">Franz Cuevas</p>
+                        <p class="card-text"><medium class="text-muted">7721</medium></p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <p class="no-padding">Sergio Apaza</p>
+                        <p class="card-text"><medium class="text-muted">1002</medium></p>
+                    </li>
+                </ul>
+                <form>
+                    <button type="submit" value="AddStudent" class="btn btn-info" asp-controller="Home" asp-action="UserPage">
+                        Add Student
                     </button>
-                </div>
-            </form>
-        </div>
-
-        <div class="col-3">
-            <ul class="list-group">
-                <li class="list-group-item list-group-item-primary">Students enrolled</li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <p class="no-padding">Carlos Zabaleta</p>
-                    <p class="card-text"><medium class="text-muted">3321</medium></p>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <p class="no-padding">Franz Cuevas</p>
-                    <p class="card-text"><medium class="text-muted">7721</medium></p>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <p class="no-padding">Sergio Apaza</p>
-                    <p class="card-text"><medium class="text-muted">1002</medium></p>
-                </li>
-            </ul>
-            <form>
-                <button type="submit" value="AddStudent" class="btn btn-info" asp-controller="Home" asp-action="UserPage">
-                    Add Student
-                </button>
-            </form>
+                </form>
+            </div>
         </div>
     </div>
-</div>
+}

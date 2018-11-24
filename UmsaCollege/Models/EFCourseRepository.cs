@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace UmsaCollege.Models {
-    public class EFCourseRepository : ICourseRepository {
+    public class EFCourseRepository : ICourseRepository{
         private ApplicationDbContext context;
 
         public EFCourseRepository(ApplicationDbContext ctx) {

@@ -15,6 +15,6 @@ namespace UmsaCollege.Models {
 
         public char Gender { get; set; }
 
-        public ICollection<CourseStudents> CourseStudents { get; set; }
+        public ICollection<Enrollment> Enrollments { get; set; }
     }
 }

@@ -9,21 +9,14 @@ namespace UmsaCollege.Models {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
-        public DbSet<Student> Students { get; set; }
         public DbSet<Course> Courses { get; set; }
-        public DbSet<CourseStudents> CourseStudent { get; set; }
+        public DbSet<Enrollment> Enrollments { get; set; }
+        public DbSet<Student> Students { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            modelBuilder.Entity<CourseStudents>()
-                .HasKey(bc => new { bc.CourseID, bc.StudentID });
-            modelBuilder.Entity<CourseStudents>()
-                .HasOne(bc => bc.course)
-                .WithMany(b => b.CourseStudents)
-                .HasForeignKey(bc => bc.CourseID);
-            modelBuilder.Entity<CourseStudents>()
-                .HasOne(bc => bc.student)
-                .WithMany(c => c.CourseStudents)
-                .HasForeignKey(bc => bc.StudentID);
+            modelBuilder.Entity<Course>().ToTable("Course");
+            modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
+            modelBuilder.Entity<Student>().ToTable("Student");
         }
     }
 }
