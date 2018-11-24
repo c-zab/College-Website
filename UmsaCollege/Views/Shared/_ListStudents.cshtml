@@ -1,0 +1,11 @@
+﻿@model UmsaCollege.Infrastructure.ListViewModel
+
+<ul class="list-group">
+    <li class="list-group-item list-group-item-primary">Students enrolled</li>
+    @foreach (var r in Model.Students) {
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <p class="no-padding">@r.Name @r.LastName</p>
+            <p class="card-text"><medium class="text-muted">@r.StudentCode</medium></p>
+        </li>
+    }
+</ul>

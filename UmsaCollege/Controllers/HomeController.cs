@@ -44,7 +44,7 @@ namespace UmsaCollege.Controllers {
             ViewBag.Title = "Display";
             var course = courserepository.GetById(id);
             courserepository.Delete(course);
-            return View("DisplayPage",new CourseListViewModel {
+            return View("DisplayPage", new CourseListViewModel {
                 Courses = courserepository.Courses
                     .OrderBy(p => p.CourseID)
             });
@@ -74,12 +74,38 @@ namespace UmsaCollege.Controllers {
         public IActionResult DataPage(int id) {
             ViewBag.Title = "Data";
             Course course = courserepository.GetById(id);
-            return View(course);
+            ListViewModel listV = new ListViewModel {
+                Courses = course,
+                Students = studentrepository.Students
+            };
+            return View(listV);
         }
 
         public IActionResult UserPage() {
             ViewBag.Title = "User";
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult UserPage(int id) {
+            ViewBag.Title = "User";
+            Student student = new Student {
+                Name = "Foo",
+                LastName = "Foo",
+                StudentCode = "Foo",
+                Gender = 'F',
+                CourseID = id
+            };
+            return View("UserPage", student);
+        }
+        [HttpPost]
+        public IActionResult AddStudent(Student student) {
+            if (ModelState.IsValid) {
+                studentrepository.SaveStudent(student);
+                return RedirectToAction("DisplayPage", student.CourseID);
+            } else {
+                return View("Index");
+            }
         }
     }
 }

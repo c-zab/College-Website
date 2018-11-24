@@ -1,4 +1,4 @@
-﻿@model UmsaCollege.Models.Course
+﻿@model UmsaCollege.Infrastructure.ListViewModel
 @{
     Layout = "_Layout";
 }
@@ -19,24 +19,24 @@
         <div class="row">
             <div class="col">
                 <form asp-controller="Home" asp-action="DisplayPage" method="post">
-                    @Html.HiddenFor(m => Model.CourseID)
+                    @Html.HiddenFor(m => Model.Courses.CourseID)
                     <div class="form-group">
-                        <label asp-for="Name">Course Name</label>
-                        <input asp-for="Name" type="text" class="form-control" id="InputName" value="@Model.Name">
+                        <label asp-for="Courses.Name">Course Name</label>
+                        <input asp-for="Courses.Name" type="text" class="form-control" id="InputName" value="@Model.Courses.Name">
                     </div>
                     <div class="form-group">
-                        <label asp-for="Code" for="InputCode">Course Code</label>
-                        <input asp-for="Code" type="text" class="form-control" id="InputCode" value="@Model.Code">
+                        <label asp-for="Courses.Code" for="InputCode">Course Code</label>
+                        <input asp-for="Courses.Code" type="text" class="form-control" id="InputCode" value="@Model.Courses.Code">
                     </div>
                     <div class="form-group">
-                        <label asp-for="Description" for="FormControlDescription">Course Description</label>
-                        <textarea asp-for="Description" class="form-control" id="FormControlDescription" rows="3">@Model.Description</textarea>
+                        <label asp-for="Courses.Description" for="FormControlDescription">Course Description</label>
+                        <textarea asp-for="Courses.Description" class="form-control" id="FormControlDescription" rows="3">@Model.Courses.Description</textarea>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Season" for="FormControlSelectSeason">Select the Season</label>
-                        <select asp-for="Season" class="form-control" id="FormControlSelectSeason">
-                            <option selected>@Model.Season</option>
-                            @if (@Model.Name == "Fall") {
+                        <label asp-for="Courses.Season" for="FormControlSelectSeason">Select the Season</label>
+                        <select asp-for="Courses.Season" class="form-control" id="FormControlSelectSeason">
+                            <option selected>@Model.Courses.Season</option>
+                            @if (@Model.Courses.Season == "Fall") {
                                 <option>Winter</option>
                             } else {
                                 <option>Fall</option>
@@ -46,10 +46,10 @@
                     </div>
 
                     <div class="form-group">
-                        <label asp-for="Status" for="FormControlSelectStatus">Select the Status of the course</label>
-                        <select asp-for="Status" class="form-control" id="FormControlSelectStatus">
-                            <option selected>@Model.Status</option>
-                            @if (@Model.Status == "Full") {
+                        <label asp-for="Courses.Status" for="FormControlSelectStatus">Select the Status of the course</label>
+                        <select asp-for="Courses.Status" class="form-control" id="FormControlSelectStatus">
+                            <option selected>@Model.Courses.Status</option>
+                            @if (@Model.Courses.Status == "Full") {
                                 <option>Closed</option>
                             } else {
                                 <option>Full</option>
@@ -58,31 +58,20 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Submit</button>
-                        <button type="submit" value="cancel" class="btn btn-danger" asp-route-id="@Model.CourseID" asp-controller="Home" asp-action="DeleteCourse">
+                        <button type="submit" value="cancel" class="btn btn-danger" asp-route-id="@Model.Courses.CourseID" asp-controller="Home" asp-action="DeleteCourse">
                             Delete
                         </button>
                     </div>
                 </form>
             </div>
 
+
             <div class="col-3">
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-primary">Students enrolled</li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <p class="no-padding">Carlos Zabaleta</p>
-                        <p class="card-text"><medium class="text-muted">3321</medium></p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <p class="no-padding">Franz Cuevas</p>
-                        <p class="card-text"><medium class="text-muted">7721</medium></p>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        <p class="no-padding">Sergio Apaza</p>
-                        <p class="card-text"><medium class="text-muted">1002</medium></p>
-                    </li>
-                </ul>
-                <form>
-                    <button type="submit" value="AddStudent" class="btn btn-info" asp-controller="Home" asp-action="UserPage">
+
+                @await Html.PartialAsync("~/Views/Shared/_ListStudents.cshtml")
+
+                <form asp-controller="Home" asp-action="UserPage" asp-route-id="@Model.Courses.CourseID">
+                    <button type="submit" class="btn btn-info">
                         Add Student
                     </button>
                 </form>

@@ -6,6 +6,6 @@ using UmsaCollege.Models;
 
 namespace UmsaCollege.Infrastructure {
     public class CreateCourseViewModel {
-        public Course course { get; set; }
+        public Course Course { get; set; }
     }
 }

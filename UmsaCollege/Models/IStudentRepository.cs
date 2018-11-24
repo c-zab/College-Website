@@ -8,5 +8,7 @@ namespace UmsaCollege.Models {
         IQueryable<Student> Students { get; }
         
         Student GetById(int id);
+
+        void SaveStudent(Student student);
     }
 }

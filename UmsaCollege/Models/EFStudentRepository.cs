@@ -16,5 +16,15 @@ namespace UmsaCollege.Models {
         public Student GetById(int id) {
             return context.Set<Student>().Find(id);
         }
+
+        public void SaveStudent(Student student) {
+            if (student.Name != null & student.StudentCode != null) {
+                context.AttachRange(student);
+                if (student.CourseID == 0) {
+                    context.Students.Add(student);
+                }
+                context.SaveChanges();
+            }
+        }
     }
 }
