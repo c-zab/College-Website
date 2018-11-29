@@ -70,15 +70,19 @@ namespace UmsaCollege.Controllers {
             return View();
         }
 
-        [HttpPost]
-        public IActionResult DataPage(int id) {
+        public IActionResult ShowCourse(Course course) {
             ViewBag.Title = "Data";
-            Course course = courserepository.GetById(id);
             ListViewModel listV = new ListViewModel {
                 Courses = course,
                 Students = studentrepository.Students
             };
-            return View(listV);
+            return View("DataPage",listV);
+        }
+
+        [HttpPost]
+        public IActionResult DataPage(int id) {
+            Course course = courserepository.GetById(id);
+            return RedirectToAction("ShowCourse", course);
         }
 
         public IActionResult UserPage() {
@@ -98,11 +102,13 @@ namespace UmsaCollege.Controllers {
             };
             return View("UserPage", student);
         }
+
         [HttpPost]
         public IActionResult AddStudent(Student student) {
             if (ModelState.IsValid) {
                 studentrepository.SaveStudent(student);
-                return RedirectToAction("DisplayPage", student.CourseID);
+                Course course = courserepository.GetById(student.CourseID);
+                return RedirectToAction("ShowCourse", course);
             } else {
                 return View("Index");
             }
