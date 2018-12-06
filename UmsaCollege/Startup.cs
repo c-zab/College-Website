@@ -24,6 +24,8 @@ namespace UmsaCollege {
             services.AddTransient<ICourseRepository, EFCourseRepository>();
             services.AddTransient<IStudentRepository, EFStudentRepository>();
             services.AddMvc();
+            //singelton
+            //viewstart
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {

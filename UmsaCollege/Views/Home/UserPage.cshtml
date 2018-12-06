@@ -1,7 +1,4 @@
 ﻿@model UmsaCollege.Models.Student
-@{
-    Layout = "_Layout";
-}
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -20,22 +17,22 @@
     </div>
 
 
-    <div class="container col-5 space-between">
+    <div class="container col-4 space-between">
 
         <ul class="list-group">
             <li class="list-group-item list-group-item-primary">Students</li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
                 <form method="post" asp-controller="Home" asp-action="AddStudent" asp-route-id="@Model.CourseID">
-                    <input hidden asp-for="Name" type="text" value="Karla">
-                    <input hidden asp-for="LastName" type="text" value="Licea">
-                    <input hidden asp-for="Gender" type="text" value='F'>
-                    <input hidden asp-for="StudentCode" type="text" value="9999">
-                    <input hidden asp-for="CourseID" type="text" value="@Model.CourseID">
-                    <p class="no-padding">Karla Licea</p>
-                    <p class="no-padding"><medium class="text-muted">9999</medium></p>
-                    <button class="btn btn-primary">Register</button>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <input hidden asp-for="Name" type="text" value="Karla">
+                        <input hidden asp-for="LastName" type="text" value="Licea">
+                        <input hidden asp-for="Gender" type="text" value='F'>
+                        <input hidden asp-for="StudentCode" type="text" value="9999">
+                        <input hidden asp-for="CourseID" type="text" value="@Model.CourseID">
+                        <p class="no-padding">Karla Licea</p>
+                        <p class="no-padding"><medium class="text-muted">9999</medium></p>
+                        <button class="btn btn-primary">Register</button>
+                    </li>
                 </form>
-            </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <form method="post" asp-controller="Home" asp-action="AddStudent" asp-route-id="@Model.CourseID">
                     <input hidden asp-for="Name" type="text" value="Franz">
