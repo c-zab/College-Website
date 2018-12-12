@@ -24,15 +24,20 @@ namespace UmsaCollege.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Code");
+                    b.Property<string>("Code")
+                        .IsRequired();
 
-                    b.Property<string>("Description");
+                    b.Property<string>("Description")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("Season");
+                    b.Property<string>("Season")
+                        .IsRequired();
 
-                    b.Property<string>("Status");
+                    b.Property<string>("Status")
+                        .IsRequired();
 
                     b.HasKey("CourseID");
 
@@ -68,11 +73,14 @@ namespace UmsaCollege.Migrations
                         .IsRequired()
                         .HasConversion(new ValueConverter<string, string>(v => default(string), v => default(string), new ConverterMappingHints(size: 1)));
 
-                    b.Property<string>("LastName");
+                    b.Property<string>("LastName")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("StudentCode");
+                    b.Property<string>("StudentCode")
+                        .IsRequired();
 
                     b.HasKey("StudentID");
 

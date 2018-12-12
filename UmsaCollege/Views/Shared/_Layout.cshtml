@@ -9,10 +9,21 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>UMSA College</title>
+
     <link href="~/images/iconCollege.png" rel="shortcut icon">
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="~/css/styles.css">
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js">
+    </script>
+    <style>
+        .input-validation-error {
+            border-color: red;
+            background-color: #fee;
+        }
+    </style>
 </head>
 
 <body>
@@ -21,12 +32,17 @@
 
     @await Html.PartialAsync("_Navbar")
 
+    @if (TempData["message"] != null) {
+        <div class="alert alert-success">@TempData["message"]</div>
+    }
+    @if (TempData["messageDanger"] != null) {
+        <div class="alert alert-danger">@TempData["messageDanger"]</div>
+    }
+
     @RenderBody()
 
     @await Html.PartialAsync("_Footer")
 
-
-    <script src="~/lib/jquery/jquery.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.js"></script>
     <script src="~/js/script.js"></script>
 

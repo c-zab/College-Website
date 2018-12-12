@@ -13,11 +13,11 @@ namespace UmsaCollege.Migrations
                 {
                     CourseID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    Code = table.Column<string>(nullable: true),
-                    Description = table.Column<string>(nullable: true),
-                    Season = table.Column<string>(nullable: true),
-                    Status = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Code = table.Column<string>(nullable: false),
+                    Description = table.Column<string>(nullable: false),
+                    Season = table.Column<string>(nullable: false),
+                    Status = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,9 +30,9 @@ namespace UmsaCollege.Migrations
                 {
                     StudentID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    LastName = table.Column<string>(nullable: true),
-                    StudentCode = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
+                    LastName = table.Column<string>(nullable: false),
+                    StudentCode = table.Column<string>(nullable: false),
                     Gender = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

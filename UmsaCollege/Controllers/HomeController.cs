@@ -31,6 +31,7 @@ namespace UmsaCollege.Controllers {
         public IActionResult DisplayPage(ListViewModel course) {
             ViewBag.Title = "Display";
             repository.Update(course.Courses);
+            TempData["message"] = $"{course.Courses.Name} has been updated";
             return View(new CourseListViewModel {
                 Courses = repository.Courses
                     .OrderBy(p => p.CourseID)
@@ -40,8 +41,11 @@ namespace UmsaCollege.Controllers {
         [HttpPost]
         public IActionResult DeleteCourse(int id) {
             ViewBag.Title = "Display";
-            var course = repository.GetById(id);
+            Course course = repository.GetById(id);
             repository.Delete(course);
+            if (course != null) {
+                TempData["messageDanger"] = $"{course.Name} was deleted";
+            }
             return View("DisplayPage", new CourseListViewModel {
                 Courses = repository.Courses
                     .OrderBy(p => p.CourseID)
@@ -59,7 +63,7 @@ namespace UmsaCollege.Controllers {
                 repository.SaveCourse(course);
                 return RedirectToAction("DisplayPage");
             } else {
-                return View("DisplayPage");
+                return RedirectToAction("DisplayPage");
             }
         }
 
