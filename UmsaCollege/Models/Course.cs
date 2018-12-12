@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace UmsaCollege.Models {
     public class Course {
+
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int CourseID { get; set; }
 
         public string Name { get; set; }
@@ -17,6 +20,6 @@ namespace UmsaCollege.Models {
 
         public string Status { get; set; }
 
-        public ICollection<Student> Students { get; set; }
+        public ICollection<Enrollment> Enrollments { get; set; }
     }
 }

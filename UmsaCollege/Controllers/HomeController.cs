@@ -9,12 +9,10 @@ using UmsaCollege.Infrastructure;
 namespace UmsaCollege.Controllers {
     public class HomeController : Controller {
 
-        private ICourseRepository courserepository;
-        private IStudentRepository studentrepository;
-
-        public HomeController(ICourseRepository repocourse, IStudentRepository repostudent) {
-            courserepository = repocourse;
-            studentrepository = repostudent;
+        private IRepository repository;
+        
+        public HomeController(IRepository repo) {
+            repository = repo;
         }
 
         public IActionResult Index() {
@@ -24,7 +22,7 @@ namespace UmsaCollege.Controllers {
         public IActionResult DisplayPage() {
             ViewBag.Title = "Display";
             return View(new CourseListViewModel {
-                Courses = courserepository.Courses
+                Courses = repository.Courses
                     .OrderBy(p => p.CourseID)
             });
         }
@@ -32,9 +30,9 @@ namespace UmsaCollege.Controllers {
         [HttpPost]
         public IActionResult DisplayPage(ListViewModel course) {
             ViewBag.Title = "Display";
-            courserepository.Update(course.Courses);
+            repository.Update(course.Courses);
             return View(new CourseListViewModel {
-                Courses = courserepository.Courses
+                Courses = repository.Courses
                     .OrderBy(p => p.CourseID)
             });
         }
@@ -42,10 +40,10 @@ namespace UmsaCollege.Controllers {
         [HttpPost]
         public IActionResult DeleteCourse(int id) {
             ViewBag.Title = "Display";
-            var course = courserepository.GetById(id);
-            courserepository.Delete(course);
+            var course = repository.GetById(id);
+            repository.Delete(course);
             return View("DisplayPage", new CourseListViewModel {
-                Courses = courserepository.Courses
+                Courses = repository.Courses
                     .OrderBy(p => p.CourseID)
             });
         }
@@ -58,7 +56,7 @@ namespace UmsaCollege.Controllers {
         [HttpPost]
         public IActionResult InsertPage(Course course) {
             if (ModelState.IsValid) {
-                courserepository.SaveCourse(course);
+                repository.SaveCourse(course);
                 return RedirectToAction("DisplayPage");
             } else {
                 return View("DisplayPage");
@@ -74,14 +72,14 @@ namespace UmsaCollege.Controllers {
             ViewBag.Title = "Data";
             ListViewModel listV = new ListViewModel {
                 Courses = course,
-                Students = studentrepository.Students
+                Students = repository.GetStudents(course.CourseID)
             };
             return View("DataPage",listV);
         }
 
         [HttpPost]
         public IActionResult DataPage(int id) {
-            Course course = courserepository.GetById(id);
+            Course course = repository.GetById(id);
             return RedirectToAction("ShowCourse", course);
         }
 
@@ -97,21 +95,20 @@ namespace UmsaCollege.Controllers {
                 Name = "Foo",
                 LastName = "Foo",
                 StudentCode = "Foo",
-                Gender = 'F',
-                CourseID = id
+                Gender = 'F'
             };
             return View("UserPage", student);
         }
 
-        [HttpPost]
-        public IActionResult AddStudent(Student student) {
-            if (ModelState.IsValid) {
-                studentrepository.SaveStudent(student);
-                Course course = courserepository.GetById(student.CourseID);
-                return RedirectToAction("ShowCourse", course);
-            } else {
-                return View("Index");
-            }
-        }
+        //[HttpPost]
+        //public IActionResult AddStudent(Student student) {
+            //if (ModelState.IsValid) {
+            //    studentrepository.SaveStudent(student);
+            //    Course course = courserepository.GetById(student.CourseID);
+            //    return RedirectToAction("ShowCourse", course);
+            //} else {
+            //    return View("Index");
+            //}
+        //}
     }
 }

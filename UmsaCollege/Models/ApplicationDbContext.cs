@@ -9,12 +9,9 @@ namespace UmsaCollege.Models {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options) { }
 
-        public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Enrollment> Enrollment { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) {
-            modelBuilder.Entity<Course>().ToTable("Course");
-            modelBuilder.Entity<Student>().ToTable("Student");
-        }
     }
 }

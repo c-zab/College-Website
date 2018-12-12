@@ -21,11 +21,8 @@ namespace UmsaCollege {
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(
                 Configuration["Data:UmsaCollegeDB:ConnectionString"]));
-            services.AddTransient<ICourseRepository, EFCourseRepository>();
-            services.AddTransient<IStudentRepository, EFStudentRepository>();
+            services.AddTransient<IRepository, EFRepository>();
             services.AddMvc();
-            //singelton
-            //viewstart
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {

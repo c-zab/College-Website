@@ -20,9 +20,9 @@ namespace UmsaCollege.Models {
         public void SaveStudent(Student student) {
             if (student.Name != null & student.StudentCode != null) {
                 context.AttachRange(student);
-                if (student.CourseID == 0) {
-                    context.Students.Add(student);
-                }
+                //if (student.CourseID == 0) {
+                //    context.Students.Add(student);
+                //}
                 context.SaveChanges();
             }
         }

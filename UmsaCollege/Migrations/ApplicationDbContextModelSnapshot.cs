@@ -20,9 +20,7 @@ namespace UmsaCollege.Migrations
 
             modelBuilder.Entity("UmsaCollege.Models.Course", b =>
                 {
-                    b.Property<int>("CourseID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<int>("CourseID");
 
                     b.Property<string>("Code");
 
@@ -36,7 +34,26 @@ namespace UmsaCollege.Migrations
 
                     b.HasKey("CourseID");
 
-                    b.ToTable("Course");
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("UmsaCollege.Models.Enrollment", b =>
+                {
+                    b.Property<int>("EnrollmentID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CourseID");
+
+                    b.Property<int>("StudentID");
+
+                    b.HasKey("EnrollmentID");
+
+                    b.HasIndex("CourseID");
+
+                    b.HasIndex("StudentID");
+
+                    b.ToTable("Enrollment");
                 });
 
             modelBuilder.Entity("UmsaCollege.Models.Student", b =>
@@ -44,8 +61,6 @@ namespace UmsaCollege.Migrations
                     b.Property<int>("StudentID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("CourseID");
 
                     b.Property<string>("Gender")
                         .IsRequired()
@@ -59,16 +74,19 @@ namespace UmsaCollege.Migrations
 
                     b.HasKey("StudentID");
 
-                    b.HasIndex("CourseID");
-
-                    b.ToTable("Student");
+                    b.ToTable("Students");
                 });
 
-            modelBuilder.Entity("UmsaCollege.Models.Student", b =>
+            modelBuilder.Entity("UmsaCollege.Models.Enrollment", b =>
                 {
-                    b.HasOne("UmsaCollege.Models.Course", "course")
-                        .WithMany("Students")
+                    b.HasOne("UmsaCollege.Models.Course", "Course")
+                        .WithMany("Enrollments")
                         .HasForeignKey("CourseID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("UmsaCollege.Models.Student", "Student")
+                        .WithMany("Enrollments")
+                        .HasForeignKey("StudentID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

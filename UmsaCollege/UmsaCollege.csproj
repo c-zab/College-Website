@@ -5,20 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="wwwroot\images\fondo.jpg" />
-    <Content Remove="wwwroot\images\iconCollege.png" />
-    <Content Remove="wwwroot\images\logoCollegemin.png" />
-    <Content Remove="wwwroot\images\logoCollegemin2.png" />
-    <Content Remove="wwwroot\images\logoCollegemin3.png" />
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.4">
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.1.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
-  
+
 </Project>
