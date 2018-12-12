@@ -16,29 +16,45 @@ namespace UmsaCollege.Models {
 
         public IQueryable<Student> Students => context.Students;
 
-        public IEnumerable<Student> GetStudents(int courseID) {
-            //var customerOrders =
-            //      from o in context.Students
-            //      join c in context.Courses on o. equals c.CourseID
-            //      select new { OrderID = o.ID, CustomerName = c.Name };
-            return context.Students.Where<Student>(p => p.StudentID == courseID);
+        public IQueryable<Enrollment> Enrollments => context.Enrollment;
 
+        public IQueryable<Student> GetStudents(int courseID) {
+            var st = (from p in context.Enrollment
+                      where p.CourseID == courseID
+                      select p.StudentID);
+            List<Student> ListStudents = new List<Student>();
+            if (st.Count() > 0) {
+                foreach (var stu in st) {
+                    Student x = context.Set<Student>().Find(stu);
+                    ListStudents.Add(x);
+                }
+                return ListStudents.AsQueryable();
+            } else {
+                return ListStudents.AsQueryable();
+            }
+            
         }
 
-        //public Student GetById(int id) {
-        //    return context.Set<Student>().Find(id);
-        //}
-
-        //public IEnumerable<Student> getStudents(Course course) {
-        //    return course.Students;
-        //}
+        public Student GetStudentById(int id) {
+            return context.Set<Student>().Find(id);
+        }
 
         public void SaveCourse(Course course) {
             if (course.Description != null & course.Name != null) {
                 context.AttachRange(course);
-                if (course.CourseID == 0) {
-                    context.Courses.Add(course);
-                }
+                //if (course.CourseID == 0) {
+                //    context.Courses.Add(course);
+                //}
+                context.SaveChanges();
+            }
+        }
+
+        public void SaveStudent(Student student) {
+            if (student.Name != null & student.StudentCode != null) {
+                context.AttachRange(student);
+                //if (student.CourseID == 0) {
+                //    context.Students.Add(student);
+                //}
                 context.SaveChanges();
             }
         }
@@ -56,6 +72,5 @@ namespace UmsaCollege.Models {
             context.Remove(course);
             context.SaveChanges();
         }
-
     }
 }

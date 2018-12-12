@@ -26,7 +26,7 @@ namespace UmsaCollege.Controllers {
                     .OrderBy(p => p.CourseID)
             });
         }
-
+        //From DataPage
         [HttpPost]
         public IActionResult DisplayPage(ListViewModel course) {
             ViewBag.Title = "Display";

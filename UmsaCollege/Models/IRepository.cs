@@ -9,7 +9,9 @@ namespace UmsaCollege.Models {
 
         IQueryable<Student> Students { get; }
 
-        IEnumerable<Student> GetStudents(int courseID);
+        IQueryable<Student> GetStudents(int courseID);
+
+        Student GetStudentById(int courseID);
 
         void SaveCourse(Course course);
 

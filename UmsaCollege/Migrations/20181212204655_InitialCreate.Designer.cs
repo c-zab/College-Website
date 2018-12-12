@@ -9,7 +9,7 @@ using UmsaCollege.Models;
 namespace UmsaCollege.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20181212173942_InitialCreate")]
+    [Migration("20181212204655_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,7 +22,9 @@ namespace UmsaCollege.Migrations
 
             modelBuilder.Entity("UmsaCollege.Models.Course", b =>
                 {
-                    b.Property<int>("CourseID");
+                    b.Property<int>("CourseID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code");
 

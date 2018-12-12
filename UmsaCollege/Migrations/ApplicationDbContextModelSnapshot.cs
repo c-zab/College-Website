@@ -20,7 +20,9 @@ namespace UmsaCollege.Migrations
 
             modelBuilder.Entity("UmsaCollege.Models.Course", b =>
                 {
-                    b.Property<int>("CourseID");
+                    b.Property<int>("CourseID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Code");
 

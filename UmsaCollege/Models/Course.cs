@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace UmsaCollege.Models {
     public class Course {
-
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        
         public int CourseID { get; set; }
 
         public string Name { get; set; }
