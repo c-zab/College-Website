@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using UmsaCollege.Models;
 using UmsaCollege.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UmsaCollege.Controllers {
     public class HomeController : Controller {
@@ -51,13 +52,14 @@ namespace UmsaCollege.Controllers {
                     .OrderBy(p => p.CourseID)
             });
         }
-
+        [Authorize]
         public IActionResult InsertPage() {
             ViewBag.Title = "Insert";
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult InsertPage(Course course) {
             if (ModelState.IsValid) {
                 repository.SaveCourse(course);
