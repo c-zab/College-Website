@@ -21,6 +21,6 @@ namespace UmsaCollege.Models {
 
         void Delete(Course course);
 
-        void SaveCourse(Student student);
+        void SaveStudent(Student student);
     }
 }

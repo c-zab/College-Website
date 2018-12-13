@@ -23,7 +23,7 @@ namespace UmsaCollege.Controllers {
         public IActionResult CreateStudent(Student student) {
             ViewBag.Title = "User";
             if (ModelState.IsValid) {
-                repository.SaveCourse(student);
+                repository.SaveStudent(student);
             }
             return View();
         }
