@@ -49,11 +49,6 @@ namespace UmsaCollege.Controllers {
             return View();
         }
 
-        public IActionResult UserPage() {
-            ViewBag.Title = "User";
-            return View();
-        }
-
         [HttpPost]
         public IActionResult UserPage(int id) {
             ViewBag.Title = "User";
@@ -64,6 +59,11 @@ namespace UmsaCollege.Controllers {
                 Gender = 'F'
             };
             return View("UserPage", student);
+        }
+
+        public IActionResult UserPage() {
+            ViewBag.Title = "User";
+            return View();
         }
 
         //[HttpPost]

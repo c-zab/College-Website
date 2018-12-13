@@ -1,0 +1,49 @@
+﻿@model UmsaCollege.Models.Student
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Insert Student</h1>
+        <p class="lead">You can insert a new Student</p>
+    </div>
+</div>
+
+<div class="container">
+    <form asp-controller="Student" asp-action="CreateStudent" method="post">
+        <div class="form-group">
+            <label asp-for="Name" for="InputName">Student name</label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Enter student name">
+            <small id="nameHelp" class="form-text text-muted">Enter the full name of the new course.</small>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName" for="InputCode">Student LastName</label>
+            <div><span asp-validation-for="LastName" class="text-danger"></span></div>
+            <input asp-for="LastName" type="text" class="form-control" placeholder="Enter students LastName">
+            <small id="codeHelp" class="form-text text-muted">Enter the LastName of the new student.</small>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="StudentCode" for="InputCode">Student Code</label>
+            <div><span asp-validation-for="StudentCode" class="text-danger"></span></div>
+            <input asp-for="StudentCode" type="text" class="form-control" placeholder="Enter student's Code">
+            <small id="codeHelp" class="form-text text-muted">Enter the Code of the new student.</small>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Gender" >Select his or her gender</label>
+            <div><span asp-validation-for="Gender" class="text-danger"></span></div>
+            <select asp-for="Gender" class="form-control">
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a class="btn btn-danger" asp-controller="Home" asp-action="UserPage">
+                Cancel
+            </a>
+        </div>
+    </form>
+</div>

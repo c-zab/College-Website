@@ -40,21 +40,15 @@ namespace UmsaCollege.Models {
         }
 
         public void SaveCourse(Course course) {
-            if (course.Description != null & course.Name != null) {
+            if (course != null) {
                 context.AttachRange(course);
-                //if (course.CourseID == 0) {
-                //    context.Courses.Add(course);
-                //}
                 context.SaveChanges();
             }
         }
 
         public void SaveStudent(Student student) {
-            if (student.Name != null & student.StudentCode != null) {
+            if (student != null) {
                 context.AttachRange(student);
-                //if (student.CourseID == 0) {
-                //    context.Students.Add(student);
-                //}
                 context.SaveChanges();
             }
         }

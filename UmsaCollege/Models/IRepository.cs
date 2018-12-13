@@ -20,5 +20,7 @@ namespace UmsaCollege.Models {
         Course GetById(int id);
 
         void Delete(Course course);
+
+        void SaveCourse(Student student);
     }
 }
