@@ -15,7 +15,7 @@ namespace UmsaCollege.Controllers {
         public HomeController(IRepository repo) {
             repository = repo;
         }
-        
+
         public IActionResult Index() => View(GetData(nameof(Index)));
 
         [Authorize(Roles = "Users")]
@@ -38,65 +38,15 @@ namespace UmsaCollege.Controllers {
                     .OrderBy(p => p.CourseID)
             });
         }
-        //From DataPage
-        [HttpPost]
-        public IActionResult DisplayPage(ListViewModel course) {
-            ViewBag.Title = "Display";
-            repository.Update(course.Courses);
-            TempData["message"] = $"{course.Courses.Name} has been updated";
-            return View(new CourseListViewModel {
-                Courses = repository.Courses
-                    .OrderBy(p => p.CourseID)
-            });
-        }
-
-        [HttpPost]
-        public IActionResult DeleteCourse(int id) {
-            ViewBag.Title = "Display";
-            Course course = repository.GetById(id);
-            repository.Delete(course);
-            if (course != null) {
-                TempData["messageDanger"] = $"{course.Name} was deleted";
-            }
-            return View("DisplayPage", new CourseListViewModel {
-                Courses = repository.Courses
-                    .OrderBy(p => p.CourseID)
-            });
-        }
         
         public IActionResult InsertPage() {
             ViewBag.Title = "Insert";
             return View();
         }
 
-        [HttpPost]
-        public IActionResult InsertPage(Course course) {
-            if (ModelState.IsValid) {
-                repository.SaveCourse(course);
-                return RedirectToAction("DisplayPage");
-            } else {
-                return RedirectToAction("DisplayPage");
-            }
-        }
-
         public IActionResult DataPage() {
             ViewBag.Title = "Data";
             return View();
-        }
-
-        public IActionResult ShowCourse(Course course) {
-            ViewBag.Title = "Data";
-            ListViewModel listV = new ListViewModel {
-                Courses = course,
-                Students = repository.GetStudents(course.CourseID)
-            };
-            return View("DataPage",listV);
-        }
-
-        [HttpPost]
-        public IActionResult DataPage(int id) {
-            Course course = repository.GetById(id);
-            return RedirectToAction("ShowCourse", course);
         }
 
         public IActionResult UserPage() {

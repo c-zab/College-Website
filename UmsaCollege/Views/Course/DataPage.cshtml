@@ -1,0 +1,78 @@
+﻿@model UmsaCollege.Infrastructure.ListViewModel
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Data Page</h1>
+        <p class="lead">You can update or display the course information.</p>
+    </div>
+</div>
+@if (Model == null) {
+    <div class="p-3 mb-2 bg-danger text-white container">
+        <h1 class="display-4">No course selected</h1>
+        <p class="lead">Please select a course in DisplayPage and then edit it here</p>
+    </div>
+} else {
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form asp-controller="Course" asp-action="UpdateCourse" method="post">
+                    @Html.HiddenFor(m => Model.Courses.CourseID)
+                    <div class="form-group">
+                        <label asp-for="Courses.Name">Course Name</label>
+                        <input asp-for="Courses.Name" type="text" class="form-control" id="InputName" value="@Model.Courses.Name">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Courses.Code" for="InputCode">Course Code</label>
+                        <input asp-for="Courses.Code" type="text" class="form-control" id="InputCode" value="@Model.Courses.Code">
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Courses.Description" for="FormControlDescription">Course Description</label>
+                        <textarea asp-for="Courses.Description" class="form-control" id="FormControlDescription" rows="3">@Model.Courses.Description</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Courses.Season" for="FormControlSelectSeason">Select the Season</label>
+                        <select asp-for="Courses.Season" class="form-control" id="FormControlSelectSeason">
+                            <option selected>@Model.Courses.Season</option>
+                            @if (@Model.Courses.Season == "Fall") {
+                                <option>Winter</option>
+                            } else {
+                                <option>Fall</option>
+                            }
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Courses.Status" for="FormControlSelectStatus">Select the Status of the course</label>
+                        <select asp-for="Courses.Status" class="form-control" id="FormControlSelectStatus">
+                            <option selected>@Model.Courses.Status</option>
+                            @if (@Model.Courses.Status == "Full") {
+                                <option>Closed</option>
+                            } else {
+                                <option>Full</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" value="cancel" class="btn btn-danger" asp-route-id="@Model.Courses.CourseID" asp-controller="Course" asp-action="DeleteCourse">
+                            Delete
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="col-3">
+
+                @await Html.PartialAsync("~/Views/Shared/_ListStudents.cshtml")
+
+                <form asp-controller="Home" asp-action="UserPage" asp-route-id="@Model.Courses.CourseID">
+                    <button type="submit" class="btn btn-info">
+                        Add Student
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+}

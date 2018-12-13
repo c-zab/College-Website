@@ -14,7 +14,7 @@
 <div class="container">
     <div class="card-columns">
         @foreach (var r in Model.Courses) {
-            <form method="post" asp-controller="Home" asp-action="DataPage" asp-route-id="@r.CourseID">
+            <form method="post" asp-controller="Course" asp-action="DataPage" asp-route-id="@r.CourseID">
                 <button class="text-left" style="border: none;cursor: pointer;background: none;" type="submit" value="submit">
                     <div class="card">
                         <img class="card-img-top" src="~/images/cover_courses/cover_course@(counter).jpg" alt="Card image cap">

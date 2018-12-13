@@ -1,7 +1,7 @@
 ﻿@model UmsaCollege.Models.Course
 
 <div class="container">
-    <form asp-controller="Home" asp-action="InsertPage" method="post">
+    <form asp-controller="Course" asp-action="InsertCourse" method="post">
         <div class="form-group">
             <label asp-for="Name" for="InputName">Course Name</label>
             <div><span asp-validation-for="Name" class="text-danger"></span></div>
