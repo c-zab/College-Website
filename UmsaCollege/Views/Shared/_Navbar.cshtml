@@ -39,6 +39,12 @@
                        asp-action="UserPage">User</a>
                 </p>
             </li>
+            <li>
+                @if (User?.Identity?.IsAuthenticated ?? false) {
+                    <a asp-controller="Account" asp-action="Logout"
+                       class="btn btn-danger">Logout</a>
+                }
+            </li>  
         </ul>
     </div>
 </nav>

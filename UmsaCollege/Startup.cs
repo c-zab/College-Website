@@ -48,6 +48,10 @@ namespace UmsaCollege {
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
+            AppIdentityDbContext.CreateAdminAccount(app.ApplicationServices, 
+                Configuration).Wait();
+            AppIdentityDbContext.CreateGeneralAccount(app.ApplicationServices,
+                Configuration).Wait();
             SeedData.EnsurePopulated(app);
         }
     }

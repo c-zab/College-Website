@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using UmsaCollege.Models;
 
 namespace UmsaCollege.Controllers {
+    [Authorize(Roles = "Admins")]
     public class AdminController : Controller {
 
         private UserManager<AppUser> userManager;
