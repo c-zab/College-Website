@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using UmsaCollege.Infrastructure;
 using UmsaCollege.Models;
 
 namespace UmsaCollege {
@@ -23,13 +24,19 @@ namespace UmsaCollege {
                 options.UseSqlServer(
                     Configuration["Data:UmsaCollegeDB:ConnectionString"]));
 
+
             services.AddDbContext<AppIdentityDbContext>(options =>
                 options.UseSqlServer(
                     Configuration["Data:UmsaIdentity:ConnectionString"]));
 
-            services.AddIdentity<AppUser, IdentityRole>()
-                .AddEntityFrameworkStores<AppIdentityDbContext>()
-                .AddDefaultTokenProviders();
+            services.AddIdentity<AppUser, IdentityRole>(opts => {
+                opts.Password.RequiredLength = 6;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            }).AddEntityFrameworkStores<AppIdentityDbContext>()
+            .AddDefaultTokenProviders();
 
             services.AddTransient<IRepository, EFRepository>();
             services.AddMvc();
@@ -42,7 +49,6 @@ namespace UmsaCollege {
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
             SeedData.EnsurePopulated(app);
-            //IdentitySeedData.EnsurePopulated(app);
         }
     }
 }

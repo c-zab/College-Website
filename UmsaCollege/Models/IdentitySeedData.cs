@@ -11,9 +11,6 @@ namespace UmsaCollege.Models {
         private const string adminUser = "Admin";
         private const string adminPassword = "Secret123$";
 
-        private const string generalUser = "General";
-        private const string generalPassword = "Secret123$";
-
         public static async void EnsurePopulated(IApplicationBuilder app) {
             UserManager<IdentityUser> userManager = app.ApplicationServices
                 .GetRequiredService<UserManager<IdentityUser>>();
@@ -24,11 +21,6 @@ namespace UmsaCollege.Models {
                 await userManager.CreateAsync(userAdmin, adminPassword);
             }
 
-            IdentityUser userGeneral = await userManager.FindByIdAsync(generalUser);
-            if (userGeneral == null) {
-                userGeneral = new IdentityUser("General");
-                await userManager.CreateAsync(userGeneral, generalPassword);
-            }
         }
     }
 }
