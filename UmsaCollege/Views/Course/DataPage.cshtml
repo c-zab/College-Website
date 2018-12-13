@@ -67,9 +67,9 @@
 
                 @await Html.PartialAsync("~/Views/Shared/_ListStudents.cshtml")
 
-                <form asp-controller="Home" asp-action="UserPage" asp-route-id="@Model.Courses.CourseID">
-                    <button type="submit" class="btn btn-info">
-                        Add Student
+                <form asp-controller="Student" asp-action="EnrrollStudent" method="post" asp-route-id="@Model.Courses.CourseID">
+                    <button type="submit" class="btn btn-info" >
+                        Add Student to course
                     </button>
                 </form>
             </div>

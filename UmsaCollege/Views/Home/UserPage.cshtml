@@ -1,227 +1,28 @@
-﻿@model UmsaCollege.Models.Student
+﻿@model UmsaCollege.Infrastructure.StudentListViewModel
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">User Page</h1>
-        <p class="lead">You can enroll or unenroll an student to a course</p>
+        <h1 class="display-4">Students</h1>
+        <p class="lead">List of all registered Students.</p>
     </div>
 </div>
-@if (Model == null) {
-    <div class="p-3 mb-2 bg-danger text-white container">
-        <h1 class="display-4">No course selected</h1>
-        <p class="lead">Please select a course in DisplayPage and then add students here</p>
-    </div>
-} else {
-    <div class="container col-6 d-flex justify-content-between align-items-center">
-        <h2>Enrroll Student</h2>
-    </div>
 
+<div class="container col-6 d-flex justify-content-between align-items-center">
+    <h2>Enrroll Student</h2>
+</div>
 
-    <div class="container col-4 space-between">
-
-        <ul class="list-group">
-            <li class="list-group-item list-group-item-primary">Students</li>
-            @*<form method="post" asp-controller="Home" asp-action="AddStudent" asp-route-id="@Model.CourseID">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <input hidden asp-for="Name" type="text" value="Karla">
-                    <input hidden asp-for="LastName" type="text" value="Licea">
-                    <input hidden asp-for="Gender" type="text" value='F'>
-                    <input hidden asp-for="StudentCode" type="text" value="9999">
-                    <input hidden asp-for="CourseID" type="text" value="@Model.CourseID">
-                    <p class="no-padding">Karla Licea</p>
-                    <p class="no-padding"><medium class="text-muted">9999</medium></p>
-                    <button class="btn btn-primary">Register</button>
-                </li>
-            </form>*@
+<div class="container col-4 space-between">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">Students</li>
+        @foreach (var r in Model.Students) {
             <li class="list-group-item d-flex justify-content-between align-items-center">
-                @*<form method="post" asp-controller="Home" asp-action="AddStudent" asp-route-id="@Model.CourseID">
-                    <input hidden asp-for="Name" type="text" value="Franz">
-                    <input hidden asp-for="LastName" type="text" value="Cuevas">
-                    <input hidden asp-for="Gender" type="text" value='F'>
-                    <input hidden asp-for="StudentCode" type="text" value="8888">
-                    <input hidden asp-for="CourseID" type="text" value="@Model.CourseID">
-                    <p class="no-padding">Franz Cuevas</p>
-                    <p class="card-text"><medium class="text-muted">7721</medium></p>
-                    <button class="btn btn-primary">Register</button>
-                </form>*@
+                <p class="no-padding">@r.Name @r.LastName</p>
+                <p class="no-padding"><medium class="text-muted">@r.StudentCode</medium></p>
+                <button class="btn btn-primary">Register</button>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-                @*<form method="post" asp-controller="Home" asp-action="AddStudent" asp-route-id="@Model.CourseID">
-                    <input hidden asp-for="Name" type="text" value="Sergio">
-                    <input hidden asp-for="LastName" type="text" value="Apaza">
-                    <input hidden asp-for="Gender" type="text" value='F'>
-                    <input hidden asp-for="StudentCode" type="text" value="7777">
-                    <input hidden asp-for="CourseID" type="text" value="@Model.CourseID">
-                    <p class="no-padding">Sergio Apaza</p>
-                    <p class="card-text"><medium class="text-muted">1002</medium></p>
-                    <button class="btn btn-primary">Register</button>
-                </form>*@
-            </li>
-        </ul>
-        <form asp-controller="Student" asp-action="CreateStudent">
-            <button class="btn btn-info">Create Student</button>
-        </form>
-    </div>
-}
-
-@*<div class="container space-between">
-        <h2>Enrroll Student</h2>
-    </div>
-
-    <div class="container">
-        <form asp-controller="Home" asp-action="DataPage" method="post">
-            <div class="form-group">
-                <label asp-for="Name" for="InputName">Name</label>
-                <input asp-for="Name" type="text" class="form-control" placeholder="Enter student's name">
-            </div>
-
-            <div class="form-group">
-                <label asp-for="LastName" for="InputCode">Last name</label>
-                <input asp-for="LastName" type="text" class="form-control" id="InputCode" placeholder="Enter student's last name">
-            </div>
-
-            <div class="form-group">
-                <label asp-for="StudentCode" for="FormControlDescription">Student Code</label>
-                <input asp-for="StudentCode" class="form-control" id="FormControlDescription" placeholder="Enter student's code">
-            </div>
-
-            <div class="form-group">
-                <label asp-for="Gender" for="FormControlSelectGender">Select gender</label>
-                <select asp-for="Gender" class="form-control" id="FormControlSelectGender">
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="N">Other</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <button type="submit" value="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </form>
-    </div>*@
-
-
-
-@*<div class="container space-between">
-        <h2>Enrroll Student</h2>
-    </div>
-    <div class="container space-between">
-      <div class="row">
-        <div class="col-sm">
-          <div class="form-group">
-                <label for="SearchInput">Search</label>
-                    <input type="text" class="form-control" id="SearchInput" placeholder="Enter ID to Search">
-            </div>
-                <ul class="list-group">
-                <li class="list-group-item">123124</li>
-                <li class="list-group-item">32165</li>
-                <li class="list-group-item">984163</li>
-            </ul>
-        </div>
-
-        <div class="col-sm">
-          <p><strong>Name: </strong> Carlos Zabaleta</p>
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-primary">Courses enrolled</li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Unix/Linux Operating Systems
-                        <span class="badge badge-primary badge-pill">005</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Software Engineering Fundamentals
-                        <span class="badge badge-primary badge-pill">006</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Programming I
-                        <span class="badge badge-primary badge-pill">008</span>
-                    </li>
-                </ul>
-        </div>
-        <div class="col-sm">
-                <h4>Courses to Enroll</h4>
-          <div class="form-group" style="padding-top: 2em">
-            <label for="InputSelectionName">Course Name</label>
-            <select class="form-control" id="InputSelectionName">
-                <option>Programming I</option>
-                <option>Software Engineering Fundamentals</option>
-                <option>Web Interface Design</option>
-                <option>Unix/Linux Operating Systems</option>
-                <option>Software Engineering Methodologies 1</option>
-            </select>
-            </div>
-        </div>
-            <div class="col-sm">
-                <h4>Sections Available</h4>
-          <div class="form-group" style="padding-top: 2em">
-            <label for="InputSelectionName">Section Number</label>
-            <select class="form-control" id="InputSelectionName">
-                <option>003</option>
-                <option>002</option>
-                <option>001</option>
-            </select>
-            </div>
-                <button type="button" class="btn btn-primary">Enroll Student</button>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="container space-between">
-        <h2>Unenrroll Student</h2>
-    </div>
-    <div class="container space-between">
-      <div class="row">
-        <div class="col-sm">
-          <div class="form-group">
-                <label for="SearchInput">Search</label>
-                    <input type="text" class="form-control" id="SearchInput" placeholder="Enter ID to Search">
-            </div>
-                <ul class="list-group">
-                <li class="list-group-item">123124</li>
-                <li class="list-group-item">32165</li>
-                <li class="list-group-item">984163</li>
-            </ul>
-        </div>
-
-        <div class="col-sm">
-          <p><strong>Name: </strong> Carlos Zabaleta</p>
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-primary">Courses enrolled</li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Unix/Linux Operating Systems
-                        <span class="badge badge-primary badge-pill">005</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Software Engineering Fundamentals
-                        <span class="badge badge-primary badge-pill">006</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Programming I
-                        <span class="badge badge-primary badge-pill">008</span>
-                    </li>
-                </ul>
-        </div>
-        <div class="col-sm">
-                <h4>Courses to Unenroll</h4>
-          <div class="form-group" style="padding-top: 2em">
-            <label for="InputSelectionName">Course Name</label>
-            <select class="form-control" id="InputSelectionName">
-                <option>Programming I</option>
-                <option>Software Engineering Fundamentals</option>
-                <option>Web Interface Design</option>
-                <option>Unix/Linux Operating Systems</option>
-                <option>Software Engineering Methodologies 1</option>
-            </select>
-            </div>
-        </div>
-            <div class="col-sm">
-                <h4>Sections Available</h4>
-          <div class="form-group" style="padding-top: 2em">
-            <label for="InputSelectionName">Section Number</label>
-            <select class="form-control" id="InputSelectionName">
-                <option>003</option>
-            </select>
-            </div>
-                <button type="button" class="btn btn-primary">Unenroll Student</button>
-        </div>
-      </div>
-    </div>*@
+        }
+    </ul>
+    <form asp-controller="Student" asp-action="CreateStudent" method="get">
+        <button class="btn btn-info">Create Student</button>
+    </form>
+</div>

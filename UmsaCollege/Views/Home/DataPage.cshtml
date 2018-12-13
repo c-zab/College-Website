@@ -61,18 +61,6 @@
                     </div>
                 </form>
             </div>
-
-
-            <div class="col-3">
-
-                @await Html.PartialAsync("~/Views/Shared/_ListStudents.cshtml")
-
-                <form asp-controller="Home" asp-action="UserPage" asp-route-id="@Model.Courses.CourseID">
-                    <button type="submit" class="btn btn-info">
-                        Add Students
-                    </button>
-                </form>
-            </div>
         </div>
     </div>
 }

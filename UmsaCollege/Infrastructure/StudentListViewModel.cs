@@ -7,6 +7,6 @@ using UmsaCollege.Models;
 namespace UmsaCollege.Infrastructure {
     public class StudentListViewModel {
         public IEnumerable<Student> Students { get; set; }
-        public IEnumerable<Course> Courses { get; set; }
+        public Course Courses { get; set; }
     }
 }

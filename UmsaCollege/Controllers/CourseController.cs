@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using UmsaCollege.Infrastructure;
 using UmsaCollege.Models;
 
 namespace UmsaCollege.Controllers {
+    [Authorize(Roles = "Admins")]
     public class CourseController : Controller {
         private IRepository repository;
 

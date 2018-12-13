@@ -2,17 +2,27 @@
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
-        <h1 class="display-4">Courses</h1>
-        <p class="lead">List of all registered courses.</p>
+        <h1 class="display-4">Students</h1>
+        <p class="lead">List of all registered Students.</p>
     </div>
 </div>
 
-<ul class="list-group">
-    <li class="list-group-item list-group-item-primary">Students enrolled</li>
-    @foreach (var r in Model.Students) {
+<div class="container col-6 d-flex justify-content-between align-items-center">
+    <h2>Enrroll Student</h2>
+</div>
+
+<div class="container col-4 space-between">
+    <ul class="list-group">
+        <li class="list-group-item list-group-item-primary">Students</li>
+        @foreach (var r in Model.Students) {
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <p class="no-padding">@r.Name @r.LastName</p>
-            <p class="card-text"><medium class="text-muted">@r.StudentCode</medium></p>
+            <p class="no-padding"><medium class="text-muted">@r.StudentCode</medium></p>
+            <button class="btn btn-primary">Register</button>
         </li>
-    }
-</ul>
+        }
+    </ul>
+    <form asp-controller="Student" asp-action="CreateStudent" method="get">
+        <button class="btn btn-info">Create Student</button>
+    </form>
+</div>
