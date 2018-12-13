@@ -16,6 +16,7 @@ namespace UmsaCollege.Controllers {
             repository = repo;
         }
 
+        [Authorize]
         public IActionResult Index() {
             return View();
         }
@@ -52,14 +53,13 @@ namespace UmsaCollege.Controllers {
                     .OrderBy(p => p.CourseID)
             });
         }
-        [Authorize]
+        
         public IActionResult InsertPage() {
             ViewBag.Title = "Insert";
             return View();
         }
 
         [HttpPost]
-        [Authorize]
         public IActionResult InsertPage(Course course) {
             if (ModelState.IsValid) {
                 repository.SaveCourse(course);
